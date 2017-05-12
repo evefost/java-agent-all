@@ -1,0 +1,1 @@
+G:\myworkspace\demos\java-age-test\agent-main-test\target>java -javaagent:G:\myworkspace\demos\java-age-test\agent-demo1\target\agent-demo1-1.0.jar=Hello1 -jar test-1.0.jar

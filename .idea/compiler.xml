@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="agent-main-test" />
+        <module name="agent-test" />
+        <module name="agent1" />
+        <module name="agent2" />
+        <module name="javaa-gents" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="agent-demo1" target="1.5" />
+      <module name="agent-main-test" target="1.5" />
+      <module name="agent-test" target="1.5" />
+      <module name="agent1" target="1.5" />
+      <module name="agent2" target="1.5" />
+      <module name="java-age-test" target="1.5" />
+      <module name="java-agent-all" target="1.5" />
+      <module name="java-agents" target="1.5" />
+      <module name="javaa-gents" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
