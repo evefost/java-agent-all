@@ -8,7 +8,7 @@
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <packaging>jar</packaging>
     <artifactId>agent2</artifactId>
     <properties>
         <premain.class>com.xie.javaagent.demo.MyAgent</premain.class>
@@ -25,18 +25,34 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <archive>
+                <artifactId>maven-assembly-plugin</artifactId>
 
+                <configuration>
+                    <finalName>${artifactId}</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
+
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass></mainClass>
+                        </manifest>
                         <manifestEntries>
                             <Premain-Class>${premain.class}</Premain-Class>
-                            <Can-Redefine-Classes>true </Can-Redefine-Classes>
-                            <Boot-Class-Path>../../javassist-3.21.0-GA.jar</Boot-Class-Path>
+                            <Can-Redefine-Classes>true</Can-Redefine-Classes>
                         </manifestEntries>
                     </archive>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
 
