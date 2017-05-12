@@ -10,6 +10,7 @@
         <module name="agent-test" />
         <module name="agent1" />
         <module name="agent2" />
+        <module name="agent3" />
         <module name="javaa-gents" />
       </profile>
     </annotationProcessing>
@@ -19,6 +20,7 @@
       <module name="agent-test" target="1.5" />
       <module name="agent1" target="1.5" />
       <module name="agent2" target="1.5" />
+      <module name="agent3" target="1.5" />
       <module name="java-age-test" target="1.5" />
       <module name="java-agent-all" target="1.5" />
       <module name="java-agents" target="1.5" />

@@ -8,20 +8,18 @@
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <packaging>jar</packaging>
-    <artifactId>agent2</artifactId>
-    <properties>
-        <premain.class>com.xie.javaagent.MyAgent</premain.class>
-    </properties>
+
+    <artifactId>agent3</artifactId>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
         <dependency>
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
-            <version>3.21.0-GA</version>
+            <version>3.20.0-GA</version>
         </dependency>
-
     </dependencies>
+    <properties>
+        <main.class>com.xie.javaagent.demo.MyAgentMain</main.class>
+    </properties>
     <build>
         <plugins>
             <plugin>
@@ -39,7 +37,7 @@
                             <mainClass></mainClass>
                         </manifest>
                         <manifestEntries>
-                            <Premain-Class>${premain.class}</Premain-Class>
+                            <Agent-Class>${main.class}</Agent-Class>
                             <Can-Redefine-Classes>true</Can-Redefine-Classes>
                         </manifestEntries>
                     </archive>
@@ -57,5 +55,4 @@
         </plugins>
 
     </build>
-
 </project>
