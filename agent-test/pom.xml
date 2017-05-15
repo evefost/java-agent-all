@@ -14,11 +14,9 @@
         <main.class>com.agent.test.demo1.Test2</main.class>
     </properties>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
         <dependency>
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
-            <version>3.21.0-GA</version>
         </dependency>
 
     </dependencies>

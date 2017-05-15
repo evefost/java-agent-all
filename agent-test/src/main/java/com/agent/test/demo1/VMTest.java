@@ -18,17 +18,18 @@ public class VMTest {
             Thread.sleep(2000);
             i++;
             System.out.println("mainagent test=========pid:"+getProcessID());
-            if(i >5){
-                //Class<?> aClass = Class.forName("com.agent.test.demo1.Test3.class");
-                //Test.invokerTest3();
+            if(i >2){
+
                 if(!isattach){
 
                     VirtualMachine vm = VirtualMachine.attach(getProcessID()+"");
                     vm.loadAgent("/Users/xieyang/work/web_space/java-agent-all/java-agents/agent3/target/agent3.jar");
                     isattach =true;
                 }
-
+                Test3.sayHello2("rrrrrrrr");
                 Test3.sayHello();
+                Test3.sayHello3();
+
 
             }
 
@@ -37,7 +38,7 @@ public class VMTest {
 
     public static final int getProcessID() {
         RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
-        System.out.println(runtimeMXBean.getName());
+        //System.out.println(runtimeMXBean.getName());
         return Integer.valueOf(runtimeMXBean.getName().split("@")[0])
                 .intValue();
     }

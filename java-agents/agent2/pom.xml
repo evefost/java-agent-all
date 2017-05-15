@@ -14,11 +14,9 @@
         <premain.class>com.xie.javaagent.MyAgent</premain.class>
     </properties>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
         <dependency>
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
-            <version>3.21.0-GA</version>
         </dependency>
 
     </dependencies>

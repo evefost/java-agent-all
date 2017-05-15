@@ -13,15 +13,17 @@ import java.util.List;
  * 通过javaasssist 修改字节码
  * 简单监控方法的执时间
  */
-public class MonitorTransformer implements ClassFileTransformer {
+public class MonitorTransformer2 implements ClassFileTransformer {
 
     final static String prefix = "\nlong startTime = System.currentTimeMillis();\n";
     final static String postfix = "\nlong endTime = System.currentTimeMillis();\n";
     final static List<String> methodList = new ArrayList<String>();
 
     static {
-        methodList.add("com.agent.test.demo1.Test3.sayHello");
         methodList.add("com.agent.test.demo1.Test3.sayHello2");
+        methodList.add("com.agent.test.demo1.Test3.sayHello");
+
+        methodList.add("com.agent.test.demo1.Test3.sayHello3");
     }
 
     /* (non-Javadoc)
@@ -41,32 +43,24 @@ public class MonitorTransformer implements ClassFileTransformer {
                 ctclass = ClassPool.getDefault().get(className);
                 //循环一下，看看哪些方法需要加时间监测
                 for (String method : methodList) {
-
+                    System.out.println("类名:" + className);
                     if (method.startsWith(className)) {
 
+                        //获取方法名
                         String methodName = method.substring(method.lastIndexOf('.') + 1, method.length());
-                        String outputStr = "\nSystem.out.println(\"this method " + methodName + " cost:\" +(endTime - startTime) +\"ms.\");";
                         CtMethod ctmethod = ctclass.getDeclaredMethod(methodName);
-                        String newMethodName = methodName + "$impl";
-                        ctmethod.setName(newMethodName);
 
-                        CtMethod newMethod = CtNewMethod.copy(ctmethod, methodName, ctclass, null);
-                        StringBuilder bodyStr = new StringBuilder();
-                        bodyStr.append("{");
-                        bodyStr.append(prefix);
-                        bodyStr.append(newMethodName + "($$);\n");
+                        ctmethod.insertBefore("long startTime = System.currentTimeMillis();");
+                        ctmethod.insertAfter("long time  = System.currentTimeMillis() - startTime;");
+                        ctmethod.insertAfter("\"方法\"+methodName+\"耗时:\"+time+\"ms\"");
 
-                        bodyStr.append(postfix);
-                        bodyStr.append(outputStr);
-
-                        bodyStr.append("}");
-                        newMethod.setBody(bodyStr.toString());
-                        ctclass.addMethod(newMethod);
                     }
                 }
+
                 //输出修改后的类
                 String outputDir = System.getProperty("user.dir") + "/java-assist/class_out";
                 ctclass.writeFile(outputDir);
+                return ctclass.toBytecode();
             } catch (IOException e) {
                 //TODO Auto-generated catch block
                 e.printStackTrace();

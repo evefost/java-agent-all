@@ -7,7 +7,7 @@ public class MyAgentMain {
 
     public static void agentmain(String args, Instrumentation inst) throws UnmodifiableClassException {
         System.out.println("MyAgentMain agentmain attach...");
-        inst.addTransformer(new MonitorTransformer());
+        inst.addTransformer(new MonitorTransformer2());
 //        System.getProperties().setProperty("monitor.conf", args);
 //
 //        for (Class clazz :inst.getAllLoadedClasses()){
