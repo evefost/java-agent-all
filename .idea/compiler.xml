@@ -11,6 +11,7 @@
         <module name="agent1" />
         <module name="agent2" />
         <module name="agent3" />
+        <module name="byte-buddy" />
         <module name="java-assist" />
         <module name="javaa-gents" />
       </profile>
@@ -22,6 +23,7 @@
       <module name="agent1" target="1.5" />
       <module name="agent2" target="1.5" />
       <module name="agent3" target="1.5" />
+      <module name="byte-buddy" target="1.5" />
       <module name="java-age-test" target="1.5" />
       <module name="java-agent-all" target="1.5" />
       <module name="java-agents" target="1.5" />

@@ -12,6 +12,7 @@
         <module>java-agents</module>
         <module>agent-test</module>
         <module>java-assist</module>
+        <module>byte-buddy</module>
     </modules>
     <dependencyManagement>
         <dependencies>
@@ -20,7 +21,13 @@
                 <artifactId>javassist</artifactId>
                 <version>3.21.0-GA</version>
             </dependency>
+            <dependency>
+                <groupId>net.bytebuddy</groupId>
+                <artifactId>byte-buddy</artifactId>
+                <version>1.6.14</version>
+            </dependency>
         </dependencies>
+
     </dependencyManagement>
 
 

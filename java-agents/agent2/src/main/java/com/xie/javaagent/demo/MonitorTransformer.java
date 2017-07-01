@@ -24,8 +24,15 @@ public class MonitorTransformer implements ClassFileTransformer {
         methodList.add("com.agent.test.demo1.Test2.sayHello2");
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.instrument.ClassFileTransformer#transform(java.lang.ClassLoader, java.lang.String, java.lang.Class, java.security.ProtectionDomain, byte[])
+    /**
+     * 所有字节码加载前会经过方方法
+     * @param loader
+     * @param className
+     * @param classBeingRedefined
+     * @param protectionDomain
+     * @param classfileBuffer
+     * @return
+     * @throws IllegalClassFormatException
      */
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined,
                             ProtectionDomain protectionDomain, byte[] classfileBuffer)

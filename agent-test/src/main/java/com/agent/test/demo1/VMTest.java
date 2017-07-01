@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 
+/**
+ * 通过agentmain加载java-agent
+ */
 public class VMTest {
     static int i = 0;
     static int pid = 0;
@@ -23,6 +26,7 @@ public class VMTest {
                 if(!isattach){
 
                     VirtualMachine vm = VirtualMachine.attach(getProcessID()+"");
+                    //指定agent的路径
                     vm.loadAgent("/Users/xieyang/work/web_space/java-agent-all/java-agents/agent3/target/agent3.jar");
                     isattach =true;
                 }
