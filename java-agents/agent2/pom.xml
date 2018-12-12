@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <artifactId>agent2</artifactId>
     <properties>
-        <premain.class>com.xie.javaagent.MyAgent</premain.class>
+        <premain.class>com.xie.javaagent.demo.MyAgent</premain.class>
     </properties>
     <dependencies>
         <dependency>
@@ -23,34 +23,16 @@
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
-                    <finalName>${artifactId}</finalName>
-                    <appendAssemblyId>false</appendAssemblyId>
-
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
                     <archive>
-                        <manifest>
-                            <mainClass></mainClass>
-                        </manifest>
                         <manifestEntries>
                             <Premain-Class>${premain.class}</Premain-Class>
-                            <Can-Redefine-Classes>true</Can-Redefine-Classes>
+                            <Can-Redefine-Classes>true </Can-Redefine-Classes>
                         </manifestEntries>
                     </archive>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
 

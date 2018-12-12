@@ -17,18 +17,14 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="agent-demo1" target="1.5" />
-      <module name="agent-main-test" target="1.5" />
-      <module name="agent-test" target="1.5" />
-      <module name="agent1" target="1.5" />
-      <module name="agent2" target="1.5" />
-      <module name="agent3" target="1.5" />
-      <module name="byte-buddy" target="1.5" />
-      <module name="java-age-test" target="1.5" />
-      <module name="java-agent-all" target="1.5" />
-      <module name="java-agents" target="1.5" />
-      <module name="java-assist" target="1.5" />
-      <module name="javaa-gents" target="1.5" />
+      <module name="agent-test" target="1.8" />
+      <module name="agent1" target="1.8" />
+      <module name="agent2" target="1.8" />
+      <module name="agent3" target="1.8" />
+      <module name="byte-buddy" target="1.8" />
+      <module name="java-agent-all" target="1.8" />
+      <module name="java-agents" target="1.8" />
+      <module name="java-assist" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
