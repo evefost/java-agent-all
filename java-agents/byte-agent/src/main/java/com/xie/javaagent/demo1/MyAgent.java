@@ -1,11 +1,12 @@
 package com.xie.javaagent.demo1;
 
+import com.xie.javaagent.demo1.builder.MethodCostEnhance;
+
 import java.lang.instrument.Instrumentation;
 
 /**
  * 我的Java代理
  *
- * @author   单红宇(365384722)
  * @myblog  http://blog.csdn.net/catoop/
  * @create    2016年3月30日
  */
@@ -24,6 +25,7 @@ public class MyAgent {
     public static void premain(String agentOps, Instrumentation inst) {
         System.out.println("=========premain方法执行========");
         System.out.println(agentOps);
+        MethodCostEnhance.getInstance().enhance(inst);
     }
 
     /**
@@ -34,8 +36,7 @@ public class MyAgent {
      * @author SHANHY
      * @create  2016年3月30日
      */
-    public static void premain(String agentOps) {
-        System.out.println("=========premain方法执行2========");
+    public static void premain(String agentOps) { System.out.println("=========premain方法执行2========");
         System.out.println(agentOps);
     }
 }
