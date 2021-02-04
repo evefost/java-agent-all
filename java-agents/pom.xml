@@ -12,7 +12,7 @@
     <artifactId>java-agents</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>agent1</module>
+        <module>byte-agent</module>
         <module>agent2</module>
         <module>agent3</module>
     </modules>
